@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="FUOCO — Wood-fired Neapolitan pizza. Hand-stretched dough, San Marzano tomato, fired at 450°C." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#F5E3CD" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='15' fill='%23F91914'/><text x='16' y='22.5' text-anchor='middle' font-size='19' fill='white' font-family='serif' font-weight='bold'>F</text></svg>" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="FUOCO — Wood-Fired Pizza" />
+  <meta property="og:description" content="Hand-stretched dough, San Marzano tomato, fired at 450°C in 90 seconds flat." />
+  <meta property="og:image" content="images/hero-pizza.jpg" />
+
+  <title>FUOCO — Wood-Fired Pizza</title>
+
+  <script type="application/ld+json"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Modak&family=Mouse+Memoirs&display=swap" rel="stylesheet" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js" defer></script>
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div id="loader" role="status" aria-label="Loading FUOCO">
+    <div class="loader__blob loader__blob--red"     aria-hidden="true"></div>
+    <div class="loader__blob loader__blob--orange"  aria-hidden="true"></div>
+    <div class="loader__blob loader__blob--mustard" aria-hidden="true"></div>
+    <div class="loader__content" aria-hidden="true">
+      <p class="loader__text">PREPARING<br>WOOD-FIRED<br>OVEN&hellip;</p>
+      <div class="loader__bar-track"
+           role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div class="loader__bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <nav id="nav" aria-label="Main navigation">
+    <a href="#hero" class="nav__logo" aria-label="FUOCO — go to top">FUOCO</a>
+
+    <div class="nav__actions">
+      <button class="nav__burger" id="burgerBtn"
+              aria-expanded="false" aria-controls="navOverlay"
+              aria-label="Open navigation menu">
+        <span class="nav__burger-line"></span>
+        <span class="nav__burger-line"></span>
+        <span class="nav__burger-line"></span>
+      </button>
+    </div>
+
+    <div id="navOverlay" class="nav__overlay"
+         aria-hidden="true" role="dialog" aria-modal="true" aria-label="Navigation menu">
+      <button class="nav__close" id="navClose" aria-label="Close navigation menu">&times;</button>
+      <ul class="nav__list">
+        <li><a href="#hero"       class="nav__link display" data-menu-link>Home</a></li>
+        <li><a href="#about"      class="nav__link display" data-menu-link>About</a></li>
+        <li><a href="#experience" class="nav__link display" data-menu-link>Experience</a></li>
+        <li><a href="#takeaway"   class="nav__link display" data-menu-link>Locations</a></li>
+        <li><a href="#cta"        class="nav__link display" data-menu-link>Order</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="hero">
+
+    <p class="hero__bg-text display" aria-hidden="true">
+      <span class="js-word">THE</span>&nbsp;<span class="js-word">PIZZA</span>
+    </p>
+
+    <span class="hero__label hero__label--tl label" aria-hidden="true">Wood Fired</span>
+    <span class="hero__label hero__label--br label" aria-hidden="true">Hand Tossed</span>
+
+    <div class="hero__main">
+      <div class="hero__pizza-wrap">
+        <img src="images/hero-pizza.jpg"
+             alt="Wood-fired margherita pizza fresh from the stone deck"
+             class="hero__pizza"
+             width="600" height="600" />
+      </div>
+      <p class="hero__wordmark display" aria-hidden="true">FUOCO</p>
+    </div>
+
+    <div class="hero__copy">
+      <p class="hero__copy-col label">
+        Stretched by hand, fired at 450&deg;C, our dough turns crisp at the edge
+        and pillow-soft at the center.
+      </p>
+      <p class="hero__copy-col label">
+        Topped with San Marzano tomato and fresh fior di latte,
+        baked golden in 90 seconds flat.
+      </p>
+    </div>
+
+  </section>
+
+  <section id="about">
+    <div class="about__inner">
+
+      <div class="about__content">
+        <span class="about__label label">Da Napoli</span>
+        <h2 class="about__heading display"
+            aria-label="Crispy, Thin, Always Loaded">
+          <span class="about__line">Crispy</span>
+          <span class="about__line">Thin</span>
+          <span class="about__line">Always</span>
+          <span class="about__line">Loaded</span>
+        </h2>
+        <p class="about__body">
+          FUOCO is back, hotter than the oven it&rsquo;s named after.
+          Three generations of dough-stretching wisdom, one wood-fired flame,
+          zero shortcuts.
+        </p>
+        <a href="#cta" class="about__cta label">Order Now</a>
+      </div>
+
+      <div class="about__gallery" aria-hidden="true">
+        <div class="about__photo about__photo--1">
+          <img src="images/about-1.jpg" alt=""
+               width="400" height="500" loading="lazy" />
+        </div>
+        <div class="about__photo about__photo--2">
+          <img src="images/about-2.jpg" alt=""
+               width="400" height="500" loading="lazy" />
+        </div>
+        <div class="about__photo about__photo--3">
+          <img src="images/about-3.jpg" alt=""
+               width="400" height="500" loading="lazy" />
+        </div>
+        <div class="sticker about__sticker about-sticker"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="experience">
+
+    <div class="exp__wave exp__wave--top" aria-hidden="true">
+      <svg viewBox="0 0 1440 110" preserveAspectRatio="none"
+           xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 L0,65 C240,110 480,20 720,70 C960,120 1200,30 1440,65 L1440,0 Z"
+              fill="#F5E3CD"/>
+      </svg>
+    </div>
+
+    <div class="exp__inner">
+
+      <span class="exp__label label" aria-hidden="true">Esperienza</span>
+
+      <h2 class="exp__heading display"
+          aria-label="Pizza That Feels Like Home">
+        <span class="exp__line">Pizza That</span>
+        <span class="exp__line">Feels Like Home</span>
+      </h2>
+
+      <div class="exp__body">
+
+        <div class="exp__stats-col exp__stats-col--left">
+          <p class="exp__stat label">300&deg;C Stone Deck</p>
+          <p class="exp__stat label">Slow Fermented 48H</p>
+          <p class="exp__stat label">Fresh Daily Dough</p>
+        </div>
+
+        <div class="exp__visual">
+          <svg class="exp__steam" viewBox="0 0 200 160"
+               fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path class="steam-line"
+                  d="M40,155 C40,130 58,130 58,105 C58,80 40,80 40,55 C40,30 58,30 58,5"
+                  stroke="rgba(255,255,255,0.5)" stroke-width="3.5" stroke-linecap="round"/>
+            <path class="steam-line"
+                  d="M100,155 C100,130 118,130 118,105 C118,80 100,80 100,55 C100,30 118,30 118,5"
+                  stroke="rgba(255,255,255,0.35)" stroke-width="3" stroke-linecap="round"/>
+            <path class="steam-line"
+                  d="M160,155 C160,130 178,130 178,105 C178,80 160,80 160,55 C160,30 178,30 178,5"
+                  stroke="rgba(255,255,255,0.5)" stroke-width="3.5" stroke-linecap="round"/>
+          </svg>
+          <div class="exp__img-circle">
+            <img src="images/hands-pizza.jpg"
+                 alt="Hands holding a slice of wood-fired pizza, cheese pulling away"
+                 class="exp__img"
+                 width="560" height="560" loading="lazy" />
+          </div>
+          <span class="exp__bold-label label" aria-hidden="true">Bold Flavour</span>
+        </div>
+
+        <div class="exp__stats-col exp__stats-col--right">
+          <p class="exp__stat label">100% San Marzano</p>
+          <p class="exp__stat label">Real Fior di Latte</p>
+          <p class="exp__stat label">No Shortcuts</p>
+        </div>
+
+      </div>
+
+      <div class="exp__steps">
+
+        <div class="exp__step">
+          <div class="exp__step-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="32" cy="36" r="22" stroke="white" stroke-width="2"/>
+              <path d="M22 28 Q32 18 42 28" stroke="white" stroke-width="2" stroke-linecap="round"/>
+              <path d="M18 33 Q26 24 34 32" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M28 23 Q38 14 46 23" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round"/>
+              <ellipse cx="26" cy="38" rx="3" ry="2" fill="rgba(255,255,255,0.3)"/>
+              <ellipse cx="38" cy="40" rx="2.5" ry="1.8" fill="rgba(255,255,255,0.3)"/>
+            </svg>
+          </div>
+          <span class="exp__step-num label">01</span>
+          <h3 class="exp__step-title">Impasto</h3>
+          <p class="exp__step-body">Hand-stretched to a thin base — no rolling pins, ever. Our dough follows the hands that shape it.</p>
+        </div>
+
+        <div class="exp__step">
+          <div class="exp__step-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="32" cy="32" r="22" stroke="white" stroke-width="2"/>
+              <path d="M32 14 L32 17" stroke="white" stroke-width="2" stroke-linecap="round"/>
+              <path d="M32 47 L32 50" stroke="white" stroke-width="2" stroke-linecap="round"/>
+              <path d="M14 32 L17 32" stroke="white" stroke-width="2" stroke-linecap="round"/>
+              <path d="M47 32 L50 32" stroke="white" stroke-width="2" stroke-linecap="round"/>
+              <path d="M32 32 L32 22" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M32 32 L41 37" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="32" cy="32" r="2.5" fill="white"/>
+            </svg>
+          </div>
+          <span class="exp__step-num label">02</span>
+          <h3 class="exp__step-title">Fermentazione</h3>
+          <p class="exp__step-body">Cold-proofed for 48 hours. Slow fermentation builds complex flavour and the perfect airy crumb.</p>
+        </div>
+
+        <div class="exp__step">
+          <div class="exp__step-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M32 56 C18 56 10 45 10 34 C10 22 20 14 28 8 C27 18 32 21 32 21 C32 21 37 14 35 8 C44 14 54 24 54 36 C54 47 44 56 32 56 Z"
+                    stroke="white" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M32 56 C24 56 20 49 20 43 C20 37 26 33 28 29 C28 37 36 39 36 39 C36 39 38 34 36 30 C42 35 44 41 44 45 C44 51 38 56 32 56 Z"
+                    stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linejoin="round" fill="rgba(255,255,255,0.07)"/>
+            </svg>
+          </div>
+          <span class="exp__step-num label">03</span>
+          <h3 class="exp__step-title">Forno</h3>
+          <p class="exp__step-body">Wood-fired stone deck at 450&deg;C. Every pizza bakes in 90 seconds &mdash; charred rim, molten centre.</p>
+        </div>
+
+        <div class="exp__step">
+          <div class="exp__step-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="32" cy="32" r="22" stroke="white" stroke-width="2"/>
+              <circle cx="32" cy="32" r="15" stroke="rgba(255,255,255,0.45)" stroke-width="1.5"/>
+              <path d="M32 17 L32 47 M17 32 L47 32" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="26" cy="26" r="2.5" fill="rgba(255,255,255,0.65)"/>
+              <circle cx="38" cy="24" r="2" fill="rgba(255,255,255,0.55)"/>
+              <circle cx="37" cy="39" r="2.5" fill="rgba(255,255,255,0.65)"/>
+              <circle cx="24" cy="38" r="2" fill="rgba(255,255,255,0.55)"/>
+            </svg>
+          </div>
+          <span class="exp__step-num label">04</span>
+          <h3 class="exp__step-title">Servizio</h3>
+          <p class="exp__step-body">Straight from oven to table, zero waiting. Heat locked in, flavour untouched, crust still crackling.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="exp__wave exp__wave--bottom" aria-hidden="true">
+      <svg viewBox="0 0 1440 110" preserveAspectRatio="none"
+           xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,110 L0,45 C240,5 480,95 720,42 C960,-8 1200,78 1440,45 L1440,110 Z"
+              fill="#F5E3CD"/>
+      </svg>
+    </div>
+
+  </section>
+
+  <section id="fullbleed" aria-label="Close-up of cheese pulling away from a wood-fired pizza">
+
+    <img src="images/cheese-pull.jpg"
+         alt="Strings of molten mozzarella pulling away from a freshly cut pizza slice"
+         class="fullbleed__img"
+         width="2400" height="1400" loading="lazy" />
+
+    <div class="fullbleed__wave fullbleed__wave--top" aria-hidden="true">
+      <svg viewBox="0 0 1440 110" preserveAspectRatio="none"
+           xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 L0,60 C360,108 720,8 1080,72 C1260,104 1350,82 1440,60 L1440,0 Z"
+              fill="#F5E3CD"/>
+      </svg>
+    </div>
+
+    <div class="fullbleed__wave fullbleed__wave--bottom" aria-hidden="true">
+      <svg viewBox="0 0 1440 110" preserveAspectRatio="none"
+           xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,110 L0,50 C360,2 720,102 1080,38 C1260,6 1350,28 1440,50 L1440,110 Z"
+              fill="#F5E3CD"/>
+      </svg>
+    </div>
+
+  </section>
+
+  <section id="ingredients">
+
+    <div class="ing__inner">
+      <span class="ing__label label">Ingredienti</span>
+      <h2 class="ing__heading display"
+          aria-label="Every Slice Bursting With Napoli Flavor">
+        <span class="ing__line">Every Slice</span>
+        <span class="ing__line">Bursting With</span>
+        <span class="ing__line">Napoli</span>
+        <span class="ing__line">Flavor</span>
+      </h2>
+    </div>
+
+    <div class="ing__icon ing__icon--tomato" aria-hidden="true">
+      <img src="images/domates.png" alt="" loading="lazy" draggable="false"/>
+    </div>
+
+    <div class="ing__icon ing__icon--mozzarella" aria-hidden="true">
+      <img src="images/cheese.png" alt="" loading="lazy" draggable="false"/>
+    </div>
+
+    <div class="ing__icon ing__icon--basil" aria-hidden="true">
+      <img src="images/feslegen.png" alt="" loading="lazy" draggable="false"/>
+    </div>
+
+    <div class="ing__icon ing__icon--mantar" aria-hidden="true">
+      <img src="images/mantar.png" alt="" loading="lazy" draggable="false"/>
+    </div>
+
+    <div class="ing__icon ing__icon--sucuk" aria-hidden="true">
+      <img src="images/sucuk.png" alt="" loading="lazy" draggable="false"/>
+    </div>
+
+  </section>
+
+  <section id="takeaway">
+
+    <div class="ta__wave ta__wave--top" aria-hidden="true">
+      <svg viewBox="0 0 1440 110" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 L0,55 C360,108 720,5 1080,70 C1260,102 1350,80 1440,55 L1440,0 Z"
+              fill="#F5E3CD"/>
+      </svg>
+    </div>
+
+    <div class="ta__inner">
+
+      <span class="ta__label label">Take Away</span>
+
+      <h2 class="ta__heading display" aria-label="From Our Oven To Any Doorstep">
+        <span class="ta__line">From Our Oven</span>
+        <span class="ta__line">To Any Doorstep</span>
+      </h2>
+
+      <p class="ta__body">
+        Boxed hot, sealed fresh&nbsp;&mdash; from our wood-fired oven to wherever your craving
+        takes you, the crust stays crisp and the cheese stays pulled.
+      </p>
+
+      <div class="ta__map" role="img"
+           aria-label="Delivery cities: Napoli, Roma, Milano, New York, Tokyo">
+
+        <svg class="ta__map-svg" viewBox="0 0 1000 580"
+             preserveAspectRatio="none" aria-hidden="true" focusable="false">
+          <path id="ta__route-path" class="ta__map-path"
+                d="M100,244 C200,244 200,336 300,336 C400,336 400,244 500,244 C600,244 600,336 700,336 C800,336 800,244 900,244"
+                fill="none" stroke="#4C0016" stroke-width="2.5"
+                stroke-dasharray="14,9" opacity="0.4"/>
+        </svg>
+        <img id="ta__pizza-icon" class="ta__pizza-icon"
+             src="images/pizza.png" alt="" aria-hidden="true" focusable="false" draggable="false"/>
+
+        <div class="ta__city ta__city--up ta__city--napoli">
+          <div class="ta__card-wrap">
+            <div class="ta__card">
+              <img src="images/city-napoli.jpg" alt="Napoli streetscape"
+                   width="160" height="200" loading="lazy"/>
+            </div>
+            <span class="ta__city-name label" aria-hidden="true">Napoli</span>
+          </div>
+          <div class="ta__dot" aria-hidden="true"></div>
+        </div>
+
+        <div class="ta__city ta__city--down ta__city--roma">
+          <div class="ta__dot" aria-hidden="true"></div>
+          <div class="ta__card-wrap">
+            <div class="ta__card">
+              <img src="images/city-roma.jpg" alt="Roma streetscape"
+                   width="160" height="200" loading="lazy"/>
+            </div>
+            <span class="ta__city-name label" aria-hidden="true">Roma</span>
+          </div>
+        </div>
+
+        <div class="ta__city ta__city--up ta__city--milano">
+          <div class="ta__card-wrap">
+            <div class="ta__card">
+              <img src="images/city-milano.jpg" alt="Milano streetscape"
+                   width="160" height="200" loading="lazy"/>
+            </div>
+            <span class="ta__city-name label" aria-hidden="true">Milano</span>
+          </div>
+          <div class="ta__dot" aria-hidden="true"></div>
+        </div>
+
+        <div class="ta__city ta__city--down ta__city--newyork">
+          <div class="ta__dot" aria-hidden="true"></div>
+          <div class="ta__card-wrap">
+            <div class="ta__card">
+              <img src="images/city-newyork.jpg" alt="New York streetscape"
+                   width="160" height="200" loading="lazy"/>
+            </div>
+            <span class="ta__city-name label" aria-hidden="true">New York</span>
+          </div>
+        </div>
+
+        <div class="ta__city ta__city--up ta__city--tokyo">
+          <div class="ta__card-wrap">
+            <div class="ta__card">
+              <img src="images/city-tokyo.jpg" alt="Tokyo streetscape"
+                   width="160" height="200" loading="lazy"/>
+            </div>
+            <span class="ta__city-name label" aria-hidden="true">Tokyo</span>
+          </div>
+          <div class="ta__dot" aria-hidden="true"></div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="ta__wave ta__wave--bottom" aria-hidden="true">
+      <svg viewBox="0 0 1440 110" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,110 L0,55 C360,2 720,105 1080,40 C1260,8 1350,30 1440,55 L1440,110 Z"
+              fill="#F5E3CD"/>
+      </svg>
+    </div>
+
+  </section>
+
+  <section id="cta">
+
+    <div class="cta__wave cta__wave--top" aria-hidden="true">
+      <svg viewBox="0 0 1440 110" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 L0,60 C360,108 720,10 1080,75 C1260,107 1350,85 1440,60 L1440,0 Z"
+              fill="#F5E3CD"/>
+      </svg>
+    </div>
+
+    <div class="cta__inner">
+
+      <div class="cta__content">
+        <span class="cta__label label">Feel It</span>
+        <h2 class="cta__heading display" aria-label="Taste The Tradition">
+          <span class="cta__line">Taste The</span>
+          <span class="cta__line">Tradition</span>
+        </h2>
+        <p class="cta__body">
+          Slow-baked tradition, fired fresh every time. Dive into a wood-fired craft
+          experience where every crisp edge and pulled string of cheese rules.
+        </p>
+        <a href="#" class="cta__btn label">Order Now</a>
+
+        <div class="sticker cta__sticker cta-sticker"></div>
+      </div>
+
+      <div class="cta__visual">
+        <div class="cta__board">
+          <img src="images/cta-board.jpg"
+               alt="Wood-fired pizza on a rustic wooden board"
+               width="600" height="700" loading="lazy"/>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="cta__wave cta__wave--bottom" aria-hidden="true">
+      <svg viewBox="0 0 1440 110" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,110 L0,50 C360,2 720,100 1080,38 C1260,6 1350,28 1440,50 L1440,110 Z"
+              fill="#F5E3CD"/>
+      </svg>
+    </div>
+
+  </section>
+
+  <footer id="footer">
+
+    <div class="footer__inner">
+
+      <div class="footer__wordmark-wrap" aria-hidden="true">
+
+        <div class="footer__icon footer__icon--tomato">
+          <img src="images/domates.png" alt="" loading="lazy" draggable="false"/>
+        </div>
+
+        <div class="footer__icon footer__icon--mozzarella">
+          <img src="images/cheese.png" alt="" loading="lazy" draggable="false"/>
+        </div>
+
+        <div class="footer__icon footer__icon--basil">
+          <img src="images/feslegen.png" alt="" loading="lazy" draggable="false"/>
+        </div>
+
+        <div class="footer__icon footer__icon--sucuk">
+          <img src="images/sucuk.png" alt="" loading="lazy" draggable="false"/>
+        </div>
+
+        <div class="footer__icon footer__icon--mantar">
+          <img src="images/mantar.png" alt="" loading="lazy" draggable="false"/>
+        </div>
+
+        <p class="footer__wordmark display">FUOCO</p>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+  <script src="js/sticker.min.js" defer></script>
+  <script src="js/script.js" defer></script>
+</body>
+</html>
