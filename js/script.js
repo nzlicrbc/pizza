@@ -84,75 +84,82 @@ const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matc
 
   let isOpen = false;
 
-  gsap.set(overlay, { y: '-100%', autoAlpha: 0 });
-
-  const slideTl = gsap.timeline({ paused: true })
-    .to(overlay, { y: '0%', autoAlpha: 1, duration: 0.5, ease: 'power3.out' })
-    .fromTo(links,
-      { y: 52, autoAlpha: 0 },
-      { y: 0, autoAlpha: 1, stagger: 0.07, duration: 0.45, ease: 'power3.out' },
-      '-=0.25'
-    );
+  gsap.set(overlay, { autoAlpha: 0 });
+  gsap.set(links,   { y: 48, autoAlpha: 0 });
 
   const xTl = gsap.timeline({ paused: true })
-    .to(bLines[0], { y: 8,  rotate:  45, duration: 0.3, ease: 'power2.out' }, 0)
-    .to(bLines[1], { scaleX: 0.4, autoAlpha: 0, duration: 0.2 }, 0)
-    .to(bLines[2], { y: -8, rotate: -45, duration: 0.3, ease: 'power2.out' }, 0);
+    .to(bLines[0], { y:  8, rotate:  45, duration: 0.28, ease: 'power2.out' }, 0)
+    .to(bLines[1], { scaleX: 0, autoAlpha: 0, duration: 0.18 }, 0)
+    .to(bLines[2], { y: -8, rotate: -45, duration: 0.28, ease: 'power2.out' }, 0);
+
+  function setAttrs(open) {
+    overlay.setAttribute('aria-hidden', String(!open));
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+  }
 
   function open() {
+    if (isOpen) return;
     isOpen = true;
+
+    gsap.killTweensOf([overlay, links]);
     nav.classList.add('is-open');
-    overlay.setAttribute('aria-hidden', 'false');
     document.body.classList.add('menu-open');
-    burger.setAttribute('aria-expanded', 'true');
-    burger.setAttribute('aria-label', 'Close navigation menu');
+    setAttrs(true);
 
     if (reducedMotion) {
-      gsap.set(overlay, { y: 0 });
+      gsap.set(overlay, { autoAlpha: 1 });
       gsap.set(links, { autoAlpha: 1, y: 0 });
-    } else {
-      slideTl.play();
-      xTl.play();
+      return;
     }
+
+    xTl.play();
+    gsap.timeline()
+      .to(overlay, { autoAlpha: 1, duration: 0.2, ease: 'none' })
+      .to(links,   { y: 0, autoAlpha: 1, stagger: 0.08, duration: 0.42, ease: 'power3.out' });
   }
 
   function close() {
+    if (!isOpen) return;
     isOpen = false;
-    nav.classList.remove('is-open');
-    overlay.setAttribute('aria-hidden', 'true');
+
+    gsap.killTweensOf([overlay, links]);
     document.body.classList.remove('menu-open');
-    burger.setAttribute('aria-expanded', 'false');
-    burger.setAttribute('aria-label', 'Open navigation menu');
+    setAttrs(false);
 
     if (reducedMotion) {
-      gsap.set(overlay, { y: '-100%', autoAlpha: 0 });
-    } else {
-      slideTl.reverse();
-      xTl.reverse();
+      nav.classList.remove('is-open');
+      gsap.set(overlay, { autoAlpha: 0 });
+      gsap.set(links,   { autoAlpha: 0, y: 48 });
+      return;
     }
+
+    xTl.reverse();
+    gsap.timeline()
+      .to(links,   { autoAlpha: 0, y: -28, stagger: 0.05, duration: 0.22, ease: 'power2.in' })
+      .call(() => nav.classList.remove('is-open'))
+      .to(overlay, { autoAlpha: 0, duration: 0.28, ease: 'power2.out' })
+      .set(links,  { y: 48 });
   }
 
   function quickClose() {
+    if (!isOpen) return;
     isOpen = false;
+
+    gsap.killTweensOf([overlay, links]);
     nav.classList.remove('is-open');
-    overlay.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('menu-open');
-    burger.setAttribute('aria-expanded', 'false');
-    burger.setAttribute('aria-label', 'Open navigation menu');
+    setAttrs(false);
+    xTl.reverse();
+
     if (reducedMotion) {
-      gsap.set(overlay, { y: '-100%', autoAlpha: 0 });
-    } else {
-      slideTl.pause();
-      gsap.set(links, { autoAlpha: 0 });
-      gsap.to(overlay, {
-        y: '-100%',
-        autoAlpha: 0,
-        duration: 0.25,
-        ease: 'power2.in',
-        onComplete() { slideTl.progress(0).pause(); },
-      });
-      xTl.reverse();
+      gsap.set(overlay, { autoAlpha: 0 });
+      gsap.set(links,   { autoAlpha: 0, y: 48 });
+      return;
     }
+
+    gsap.to(overlay, { autoAlpha: 0, duration: 0.18, ease: 'power2.in' });
+    gsap.set(links,  { autoAlpha: 0, y: 48 });
   }
 
   burger.addEventListener('click', () => (isOpen ? close() : open()));
