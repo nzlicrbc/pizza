@@ -3,7 +3,7 @@
 > A high-fidelity restaurant landing page for a fictional Neapolitan pizza brand. Built with vanilla HTML, CSS, and JavaScript — no frameworks, no build tools.
 
 ## Live Demo
-[fuoco-pizza.vercel.app](https://nzlicrbc.github.io/pizza/)
+[Live demo](https://nzlicrbc.github.io/pizza/)
 
 ## Features
 - Animated loader screen
