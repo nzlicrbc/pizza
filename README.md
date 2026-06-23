@@ -1,4 +1,4 @@
-# FUOCO — Wood-Fired Pizza Landing Page
+# FUOCO — Wood-Fired Pizza Landing Page 
 
 > A high-fidelity restaurant landing page for a fictional Neapolitan pizza brand. Built with vanilla HTML, CSS, and JavaScript — no frameworks, no build tools.
 
